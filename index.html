@@ -70,14 +70,7 @@ var _hmt = _hmt || [];
 <meta name="twitter:card" content="summary">
   
   
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+    <link rel="shortcut icon" href="/images/pic/icon2.jpg">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -116,8 +109,6 @@ var _hmt = _hmt || [];
     
       <a class="main-nav-link" href="/about">About</a>
     
-      <a class="main-nav-link" href="/atom.xml">rss</a>
-    
   </nav>
   <nav id="sub-nav">
     <a id="theme-btn" class="nav-icon">
@@ -139,8 +130,6 @@ var _hmt = _hmt || [];
     
       <a class="nav-dropdown-link" href="/about">About</a>
     
-      <a class="nav-dropdown-link" href="/atom.xml">rss</a>
-    
      
     </div>
 </div>
@@ -158,6 +147,8 @@ var _hmt = _hmt || [];
     <div class="widget-wrap">
   <div class="info-card">
     <div class="avatar">
+      
+        <image src=/images/pic/head.jpg></image>
       
       <div class="img-dim"></div>
     </div>
@@ -184,9 +175,18 @@ var _hmt = _hmt || [];
       
 
 
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/OS/">
+                OS
+                <div class="category-count">1</div>
+            </a>
+        </div>
+    </div>
+  </div>
 
-    
-      
 
     
   </div>
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
    
 
 
-<article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-MemoryManagement" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/06/30/index/">Hello World</a>
+        <a class="p-name article-title" href="/2024/06/30/index/">Memory Management</a>
       </h1>
     
   
@@ -216,18 +216,18 @@ var _hmt = _hmt || [];
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-06-29T16:38:41.623Z" itemprop="datePublished">2024-06-30</time>
+  <time class="dt-published" datetime="2024-06-29T16:00:00.000Z" itemprop="datePublished">2024-06-30</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    Uncategorized 
+  <a class="meta-cate-link" href="/categories/OS/">OS</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            367 words 
+            569 words 
           </div>
         </div>
         
@@ -236,20 +236,20 @@ var _hmt = _hmt || [];
         
           <div class="truncate-text">
             
-              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+              
+Memory Management
 
-More info: Writing
-Run server1$ hexo server
+地址空间
 
-More info: Server
-Generate static files1$ hexo generate
 
-More info: Generating
-Deploy to remote sites1$ hexo deploy
+Concept and Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存的概念与设计思想。主要问题是为什么设计地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制。
+地址空间一种存储器的抽象：地址空间。
 
-More info: Deployment
+就像进程的概念创造了一类抽象的 cpu 以运行程序一样，地址空间为程序创造了一种抽象的内存《现代操作系统 P104》Just as the process concept creats a kind of abstract CPU to programs,the address space is the set of addresses that a process can use to address memory 《Modern Operating Systems P186》
 
+无存储器抽象（无地址空间抽象概念，即绝对地址操作），在只有操作系统和一个用户进程的情况，早期 存在 的内存布局，如图。
+
+来自《现代操纵系统 P103》，基于上图内存分别。(知道个大概就 ok...
             
           </div>
         
@@ -259,12 +259,14 @@ More info: Deployment
     </div>
     
      
-    <a class="right-panel  non-pic  "
-      
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/../images/home/headline_background.jpg)" 
       href="/2024/06/30/index/" 
     >
        
-      <i class="fa-solid fa-angle-right non-pic"></i>
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
        
     </a>
      

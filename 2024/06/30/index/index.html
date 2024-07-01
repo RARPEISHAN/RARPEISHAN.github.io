@@ -59,16 +59,16 @@ var _hmt = _hmt || [];
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Memory Management  地址空间   Concept and Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存的概念与设计思想。主要问题是为什么设计地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制。 地址空间一种存储器的抽象：地址空间。  就像进程的概念创造了一类抽象的 cpu 以运行程序一样，地址空间为程序创造了一种抽象的">
+  <meta name="description" content="Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。  三种装入方式地址空间  地址空间一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间  An address space is the set of add">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Memory Management">
 <meta property="og:url" content="http://rarpeishan.github.io.com/2024/06/30/index/index.html">
 <meta property="og:site_name" content="RARPEISHAN">
-<meta property="og:description" content="Memory Management  地址空间   Concept and Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存的概念与设计思想。主要问题是为什么设计地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制。 地址空间一种存储器的抽象：地址空间。  就像进程的概念创造了一类抽象的 cpu 以运行程序一样，地址空间为程序创造了一种抽象的">
+<meta property="og:description" content="Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。  三种装入方式地址空间  地址空间一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间  An address space is the set of add">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
 <meta property="article:published_time" content="2024-06-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-01T08:50:43.775Z">
+<meta property="article:modified_time" content="2024-07-01T16:00:57.026Z">
 <meta property="article:author" content="RARPEISHAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
@@ -206,7 +206,7 @@ var _hmt = _hmt || [];
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cly2qsawy0002eci1gf1r1xk5">
+      <a class="article-gallery-img" rel="gallery_cly3637b50002nki133sr18ug">
         <img src="/../images/pic/Three_pic.jpg" itemprop="image">
       </a>
     
@@ -242,34 +242,37 @@ var _hmt = _hmt || [];
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            569 words 
+            833 words 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <hr>
-<p><a href="#memory-management">Memory Management</a></p>
-<ul>
-<li><a href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">地址空间</a></li>
-</ul>
+          <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>这里是我 <strong>目前</strong> 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。</p>
 <hr>
-<h1 id="Concept-and-Question"><a href="#Concept-and-Question" class="headerlink" title="Concept and Question"></a>Concept and Question</h1><p>这里是我 <strong>目前</strong> 学习所得到的信息，关于内存中地址空间、虚拟内存的概念与设计思想。主要问题是为什么设计地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制。</p>
-<h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><p>一种存储器的抽象：地址空间。</p>
+<p><a href="#%E8%A3%85%E5%85%A5">三种装入方式</a><br><a href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">地址空间</a></p>
+<hr>
+<h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><p>一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间</p>
 <blockquote>
-<p>就像进程的概念创造了一类抽象的 cpu 以运行程序一样，地址空间为程序创造了一种抽象的内存<em>《现代操作系统 P104》</em><br><br>Just as the process concept creats a kind of abstract CPU to programs,the address space is the set of addresses that a process can use to address memory <em>《Modern Operating Systems P186》</em></p>
+<p>An address space is the set of addresses that a process can use to address memory. <strong>Each process has its own address space</strong>, independent of those belonging to other processes <em>《Modern Operating Systems P186》</em></p>
 </blockquote>
-<p>无存储器抽象（无地址空间抽象概念，即绝对地址操作），在只有操作系统和一个用户进程的情况，早期 <strong>存在</strong> 的内存布局，如图。</p>
-<p><img src="/../images/Memory_pic/EarlyAddressSpace.jpg" alt="早期存在的内存布局" title="早期存在的内存布局"></p>
-<p>来自《现代操纵系统 P103》，基于上图内存分别。(知道个大概就 okay)</p>
+<p>对于直接运行在物理内存上的缺点</p>
 <ul>
-<li>如何实现并行：多线程编程，但单单线程抽象无法解决<strong>多进程</strong>运行。</li>
-<li>如何实现多程序运行：使用保护键（硬件支持）<img src="/../images/Memory_pic/addressspace.jpg" title="两个个16KB程序，装入内存后的"></li>
-<li>如何解决直接操作绝对地址或进程装入内存时地址重定位问题：静态重定位</li>
+<li>物理内存不足：当物理内存不足时需对物理内存进行管理，如覆盖技术（但是覆盖技术需要自己定义结构，对于程序员非常麻烦）</li>
+<li>内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二个程序。你说剩下的哪些空内存浪不浪费</li>
+<li>程序运行的地址不确定：<a href="#%E8%A3%85%E5%85%A5%E6%96%B9%E5%BC%8F">绝对装入方式</a></li>
+<li>地址空间隔离性</li>
+<li>如何实现多程序运行对进程内存的保护：硬件支持，如使用保护键</li>
+<li>如何解决对绝对地址：重定位</li>
 </ul>
-<p>以上问题我 <strong>觉得</strong> 都在为了在一个安全可靠且对于程序员不复杂的内存环境中，实现多道程序。</p>
-
+<h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><p><strong>绝对装入</strong><br>&emsp;<strong><em>编译期</em></strong> 就完成相对地址到绝对地址的转化。限制程序装入时的灵活性，固定的地址可能导致其他机器上无法运行。只能在单道程序环境中使用。</p>
+<p><strong>静态重定位：</strong><br>&emsp;在 <strong><em>程序装入内存时</em></strong> 进行相对地址与绝对地址的转化。需一步到位，缺点在内存不足时导致程序频繁换入换出，造成内存效率降低，但解决了绝对装入的缺点。</p>
+<p><strong>动态重定位：</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。<img src="/../images/Memory_pic/ToProtectAddressSpace%20.png" alt="重定位寄存器与界限寄存器的使用"></p>
+<p><img src="/../images/Memory_pic/virtualaddress.png" alt="动态重定位模式相对地址到绝对地址的转变"></p>
+<p>假想一下整个流程：当 CPU 需要读取某个进程中地址的位置，首先会将读取的相对地址由地址总线传给 MMU 单元中进行转化，</p>
+<h2 id="内存扩容"><a href="#内存扩容" class="headerlink" title="内存扩容"></a>内存扩容</h2>
+        
         
       </div>
 

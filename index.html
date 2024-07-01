@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            569 words 
+            833 words 
           </div>
         </div>
         
@@ -236,22 +236,21 @@ var _hmt = _hmt || [];
         
           <div class="truncate-text">
             
-              
-Memory Management
+              Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。
 
-地址空间
+三种装入方式地址空间
 
+地址空间一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间
 
-Concept and Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存的概念与设计思想。主要问题是为什么设计地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制。
-地址空间一种存储器的抽象：地址空间。
+An address space is the set of addresses that a process can use to address memory. Each process has its own address space, independent of those belonging to other processes 《Modern Operating Systems P186》
 
-就像进程的概念创造了一类抽象的 cpu 以运行程序一样，地址空间为程序创造了一种抽象的内存《现代操作系统 P104》Just as the process concept creats a kind of abstract CPU to programs,the address space is the set of addresses that a process can use to address memory 《Modern Operating Systems P186》
+对于直接运行在物理内存上的缺点
 
-无存储器抽象（无地址空间抽象概念，即绝对地址操作），在只有操作系统和一个用户进程的情况，早期 存在 的内存布局，如图。
-
-来自《现代操纵系统 P103》，基于上图内存分别。(知道个大概就 ok...
+物理内存不足：当物理内存不足时需对物理内存进行管理，如覆盖技术（但是覆盖技术需要自己定义结构，对于程序员非常麻烦）
+内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二...
             
           </div>
+        
         
       </div>
 

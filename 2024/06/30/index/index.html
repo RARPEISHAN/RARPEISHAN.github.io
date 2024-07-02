@@ -68,7 +68,7 @@ var _hmt = _hmt || [];
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
 <meta property="article:published_time" content="2024-06-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-02T05:26:27.097Z">
+<meta property="article:modified_time" content="2024-07-02T07:25:10.864Z">
 <meta property="article:author" content="RARPEISHAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
@@ -211,7 +211,7 @@ var _hmt = _hmt || [];
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cly3yvxkd00044oi1h7nc2jj3">
+      <a class="article-gallery-img" rel="gallery_cly433qy90004nki1dz68c26j">
         <img src="/../images/pic/Three_pic.jpg" itemprop="image">
       </a>
     
@@ -247,7 +247,7 @@ var _hmt = _hmt || [];
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            833 words 
+            747 words 
           </div>
         </div>
         
@@ -268,14 +268,13 @@ var _hmt = _hmt || [];
 <li>内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二个程序。你说剩下的哪些空内存浪不浪费</li>
 <li>程序运行的地址不确定：<a href="#%E8%A3%85%E5%85%A5%E6%96%B9%E5%BC%8F">绝对装入方式</a></li>
 <li>地址空间隔离性</li>
-<li>如何实现多程序运行对进程内存的保护：硬件支持，如使用保护键</li>
-<li>如何解决对绝对地址：重定位</li>
 </ul>
-<h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><p><strong>绝对装入</strong><br>&emsp;<strong><em>编译期</em></strong> 就完成相对地址到绝对地址的转化。限制程序装入时的灵活性，固定的地址可能导致其他机器上无法运行。只能在单道程序环境中使用。</p>
+<h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><p>如何解决对绝对地址：重定位</p>
+<p><strong>绝对装入</strong><br>&emsp;<strong><em>编译期</em></strong> 就完成相对地址到绝对地址的转化。限制程序装入时的灵活性，固定的地址可能导致其他机器上无法运行。只能在单道程序环境中使用。</p>
 <p><strong>静态重定位：</strong><br>&emsp;在 <strong><em>程序装入内存时</em></strong> 进行相对地址与绝对地址的转化。需一步到位，缺点在内存不足时导致程序频繁换入换出，造成内存效率降低，但解决了绝对装入的缺点。</p>
-<p><strong>动态重定位：</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。<img src="/../images/Memory_pic/ToProtectAddressSpace%20.png" alt="重定位寄存器与界限寄存器的使用"></p>
+<p><strong>动态重定位：</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。</p>
+<p><img src="/../images/Memory_pic/ToProtectAddressSpace%20.png" alt="重定位寄存器与界限寄存器的使用"></p>
 <p><img src="/../images/Memory_pic/virtualaddress.png" alt="动态重定位模式相对地址到绝对地址的转变"></p>
-<p>假想一下整个流程：当 CPU 需要读取某个进程中地址的位置，首先会将读取的相对地址由地址总线传给 MMU 单元中进行转化，</p>
 <h2 id="内存扩容"><a href="#内存扩容" class="headerlink" title="内存扩容"></a>内存扩容</h2>
         
         
@@ -292,12 +291,12 @@ var _hmt = _hmt || [];
   <a class="article-nav-btn left "
     
       href="/2024/07/02/index/"
-      title="Getting girlhood right"
+      title="Reading Getting girlhood right"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        Getting girlhood right
+        Reading Getting girlhood right
         
     </p>
   </a>

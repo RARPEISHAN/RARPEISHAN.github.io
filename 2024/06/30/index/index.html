@@ -59,16 +59,16 @@ var _hmt = _hmt || [];
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。  三种装入方式地址空间  地址空间一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间  An address space is the set of add">
+  <meta name="description" content="Question这里是我初学到 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。 Categories 地址空间三种装入方式 地址空间 一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都存在一个独立的地址空间。虚拟地址的集合是一个地址空间。  An">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Memory Management">
 <meta property="og:url" content="http://rarpeishan.github.io.com/2024/06/30/index/index.html">
 <meta property="og:site_name" content="RARPEISHAN">
-<meta property="og:description" content="Question这里是我 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。  三种装入方式地址空间  地址空间一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间  An address space is the set of add">
+<meta property="og:description" content="Question这里是我初学到 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。 Categories 地址空间三种装入方式 地址空间 一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都存在一个独立的地址空间。虚拟地址的集合是一个地址空间。  An">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
 <meta property="article:published_time" content="2024-06-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-02T07:25:10.864Z">
+<meta property="article:modified_time" content="2024-07-03T12:43:25.979Z">
 <meta property="article:author" content="RARPEISHAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
@@ -111,8 +111,6 @@ var _hmt = _hmt || [];
     
       <a class="main-nav-link" href="/archives">Archives</a>
     
-      <a class="main-nav-link" href="/about">About</a>
-    
   </nav>
   <nav id="sub-nav">
     <a id="theme-btn" class="nav-icon">
@@ -131,8 +129,6 @@ var _hmt = _hmt || [];
       <a class="nav-dropdown-link" href="/">Home</a>
     
       <a class="nav-dropdown-link" href="/archives">Archives</a>
-    
-      <a class="nav-dropdown-link" href="/about">About</a>
     
      
     </div>
@@ -211,7 +207,7 @@ var _hmt = _hmt || [];
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cly433qy90004nki1dz68c26j">
+      <a class="article-gallery-img" rel="gallery_cly5twsz20004q4i1cag8256j">
         <img src="/../images/pic/Three_pic.jpg" itemprop="image">
       </a>
     
@@ -247,35 +243,61 @@ var _hmt = _hmt || [];
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            747 words 
+            1.2k words 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>这里是我 <strong>目前</strong> 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。</p>
-<hr>
-<p><a href="#%E8%A3%85%E5%85%A5">三种装入方式</a><br><a href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">地址空间</a></p>
-<hr>
-<h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><p>一种存储器抽象：地址空间，进程可以寻址所得到的地址。每个进程都存在一个独立的地址空间</p>
+          <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>这里是我初学到 <strong>目前</strong> 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。</p>
+<h2 id="Categories"><a href="#Categories" class="headerlink" title="Categories"></a>Categories</h2><hr>
+<p><a href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">地址空间</a><br><a href="#%E8%A3%85%E5%85%A5">三种装入方式</a></p>
+<h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><hr>
+<p>一种存储器抽象：地址空间，进程可以寻址所得到地址的 <strong>集合</strong>。每个进程都存在一个独立的地址空间。虚拟地址的集合是一个地址空间。</p>
 <blockquote>
 <p>An address space is the set of addresses that a process can use to address memory. <strong>Each process has its own address space</strong>, independent of those belonging to other processes <em>《Modern Operating Systems P186》</em></p>
 </blockquote>
-<p>对于直接运行在物理内存上的缺点</p>
+<p>对于直接运行在物理内存上的缺点：</p>
 <ul>
-<li>物理内存不足：当物理内存不足时需对物理内存进行管理，如覆盖技术（但是覆盖技术需要自己定义结构，对于程序员非常麻烦）</li>
-<li>内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二个程序。你说剩下的哪些空内存浪不浪费</li>
-<li>程序运行的地址不确定：<a href="#%E8%A3%85%E5%85%A5%E6%96%B9%E5%BC%8F">绝对装入方式</a></li>
-<li>地址空间隔离性</li>
+<li>物理内存不足：当物理内存不足时需对物理内存进行管理，如覆盖技术（但是覆盖技术需要程序员自定义结构，相对麻烦）与交换技术。使用地址空间概念，使用虚拟内存机制实现内存扩容。</li>
+<li>内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二个程序。你说剩下的哪些空内存浪不浪费。</li>
+<li>程序运行的地址不确定：<a href="#%E8%A3%85%E5%85%A5%E6%96%B9%E5%BC%8F">绝对装入方式</a>。</li>
+<li>地址空间隔离性。</li>
 </ul>
-<h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><p>如何解决对绝对地址：重定位</p>
+<h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><hr>
+<p>解决相对地址到物理地址转换：重定位</p>
 <p><strong>绝对装入</strong><br>&emsp;<strong><em>编译期</em></strong> 就完成相对地址到绝对地址的转化。限制程序装入时的灵活性，固定的地址可能导致其他机器上无法运行。只能在单道程序环境中使用。</p>
 <p><strong>静态重定位：</strong><br>&emsp;在 <strong><em>程序装入内存时</em></strong> 进行相对地址与绝对地址的转化。需一步到位，缺点在内存不足时导致程序频繁换入换出，造成内存效率降低，但解决了绝对装入的缺点。</p>
 <p><strong>动态重定位：</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。</p>
 <p><img src="/../images/Memory_pic/ToProtectAddressSpace%20.png" alt="重定位寄存器与界限寄存器的使用"></p>
-<p><img src="/../images/Memory_pic/virtualaddress.png" alt="动态重定位模式相对地址到绝对地址的转变"></p>
-<h2 id="内存扩容"><a href="#内存扩容" class="headerlink" title="内存扩容"></a>内存扩容</h2>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><hr>
+<p>主要记录内存的分配与管理；分配的方式以及相应的优缺点；空闲内存的管理；内存不足的解决方法；</p>
+<h3 id="空闲内存管理-跟踪"><a href="#空闲内存管理-跟踪" class="headerlink" title="空闲内存管理 &amp; 跟踪"></a>空闲内存管理 &amp; 跟踪</h3><p>空闲内存的管理主要有两种方式：一种是使用位图的存储管理。另一种是使用链表的存储管理</p>
+<blockquote>
+<p>Linux 系统中使用的一些特定内存分配器（伙伴分配器与 slab 分配器）。不知道是不是错觉， STL 中 allocator 设计上采用了一级分配器与二级分配器配合使用，二级分配器中采用的设计思想(memory pool)与 slab 分配器很像。需要再深入了解与比较。</p>
+</blockquote>
+<h3 id="内存分配方式"><a href="#内存分配方式" class="headerlink" title="内存分配方式"></a>内存分配方式</h3><ol>
+<li>单一连续分配</li>
+<li>固定分区分配<ul>
+<li>分区大小相等</li>
+<li>分区大小不相等</li>
+</ul>
+</li>
+<li>动态分区分配<ul>
+<li>首次适应（First Fit）算法</li>
+<li>最佳适应（Best Fit）算法</li>
+<li>最坏适应（Worst Fit）算法</li>
+<li>快速适配（Quick Fit）算法</li>
+</ul>
+</li>
+</ol>
+<h3 id="内存不足情况"><a href="#内存不足情况" class="headerlink" title="内存不足情况"></a>内存不足情况</h3><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
+<ul>
+<li>《现代操纵系统》</li>
+<li>《Modern Operating Systems P186》</li>
+</ul>
+
         
         
       </div>
@@ -314,19 +336,6 @@ var _hmt = _hmt || [];
   
 </article>
 
-
-  
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <div id="comment-card" class="comment-card">
-    <div class="main-title-bar">
-      <div class="main-title-dot"></div>
-      <div class="main-title">Comments </div>
-    </div>
-    <div id="vcomments"></div>
-  </div>
-  <script>
-      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
-  </script>
 
 
 

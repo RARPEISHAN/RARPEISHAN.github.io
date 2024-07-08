@@ -68,7 +68,7 @@ var _hmt = _hmt || [];
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
 <meta property="article:published_time" content="2024-06-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-03T12:43:25.979Z">
+<meta property="article:modified_time" content="2024-07-08T10:51:56.853Z">
 <meta property="article:author" content="RARPEISHAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cly5twsz20004q4i1cag8256j">
+      <a class="article-gallery-img" rel="gallery_clycv4yeu0004ygi19vvb2dqb">
         <img src="/../images/pic/Three_pic.jpg" itemprop="image">
       </a>
     
@@ -243,7 +243,7 @@ var _hmt = _hmt || [];
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.2k words 
+            2.5k words 
           </div>
         </div>
         
@@ -258,44 +258,94 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>An address space is the set of addresses that a process can use to address memory. <strong>Each process has its own address space</strong>, independent of those belonging to other processes <em>《Modern Operating Systems P186》</em></p>
 </blockquote>
-<p>对于直接运行在物理内存上的缺点：</p>
-<ul>
-<li>物理内存不足：当物理内存不足时需对物理内存进行管理，如覆盖技术（但是覆盖技术需要程序员自定义结构，相对麻烦）与交换技术。使用地址空间概念，使用虚拟内存机制实现内存扩容。</li>
-<li>内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二个程序。你说剩下的哪些空内存浪不浪费。</li>
-<li>程序运行的地址不确定：<a href="#%E8%A3%85%E5%85%A5%E6%96%B9%E5%BC%8F">绝对装入方式</a>。</li>
-<li>地址空间隔离性。</li>
-</ul>
+<p>可以通过基址寄存器与界限寄存器实现地址空间的抽象</p>
 <h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><hr>
 <p>解决相对地址到物理地址转换：重定位</p>
 <p><strong>绝对装入</strong><br>&emsp;<strong><em>编译期</em></strong> 就完成相对地址到绝对地址的转化。限制程序装入时的灵活性，固定的地址可能导致其他机器上无法运行。只能在单道程序环境中使用。</p>
 <p><strong>静态重定位：</strong><br>&emsp;在 <strong><em>程序装入内存时</em></strong> 进行相对地址与绝对地址的转化。需一步到位，缺点在内存不足时导致程序频繁换入换出，造成内存效率降低，但解决了绝对装入的缺点。</p>
 <p><strong>动态重定位：</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。</p>
 <p><img src="/../images/Memory_pic/ToProtectAddressSpace%20.png" alt="重定位寄存器与界限寄存器的使用"></p>
+<p>对于直接运行在物理内存上的缺点：</p>
+<ul>
+<li>物理内存不足：当物理内存不足时需对物理内存进行管理，如覆盖技术（但是覆盖技术需要程序员自定义结构，相对麻烦）与交换技术。使用地址空间概念，使用虚拟内存机制实现内存扩容。</li>
+<li>内存使用率低：存在一个程序在内存中，但是有第二个程序需要运行，但是你的内存偏偏就差那么点能够装下第二个程序。你说剩下的哪些空内存浪不浪费。</li>
+<li>程序运行的地址不确定</li>
+<li>地址空间隔离性。</li>
+</ul>
 <h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><hr>
 <p>主要记录内存的分配与管理；分配的方式以及相应的优缺点；空闲内存的管理；内存不足的解决方法；</p>
 <h3 id="空闲内存管理-跟踪"><a href="#空闲内存管理-跟踪" class="headerlink" title="空闲内存管理 &amp; 跟踪"></a>空闲内存管理 &amp; 跟踪</h3><p>空闲内存的管理主要有两种方式：一种是使用位图的存储管理。另一种是使用链表的存储管理</p>
 <blockquote>
-<p>Linux 系统中使用的一些特定内存分配器（伙伴分配器与 slab 分配器）。不知道是不是错觉， STL 中 allocator 设计上采用了一级分配器与二级分配器配合使用，二级分配器中采用的设计思想(memory pool)与 slab 分配器很像。需要再深入了解与比较。</p>
+<p>Linux 系统中使用的一些特定内存分配器（伙伴分配器与 slab 分配器）。不知道是不是错觉， STL 中 allocator 设计上,采用了一级分配器与二级分配器配合使用方式，二级分配器中采用的设计思想(memory pool)与 slab 分配器很像。需要再深入了解与比较。</p>
 </blockquote>
+<ol>
+<li><p><strong>使用位图（Bitmaps）的存储管理</strong></p>
+<blockquote>
+<p>bitmap is <strong>a type of</strong> memory organization or image file format used to store digital images.–Wiki<br>位图（raster&#x2F;bitmap graphic）可能是一种<strong>数据结构</strong>。想到了之前学图形学。。脑壳痛。<strong>个人</strong> 认为由位图这个存储方式的图像叫位图？<a target="_blank" rel="noopener" href="http://jartto.wang/2018/12/09/bitmap/">看到对位图不错的分析</a></p>
+</blockquote>
+<p>&emsp;将内存<strong>划分成多个一定大小</strong>的内存空间（几个字或几千个字节组成的<strong>分配单元</strong>）。使用一个 bit 位来标记一个分配单元，0 表示空闲，1 表示占用。<br>&emsp;一些注意点：</p>
+<ul>
+<li>内存大小与分配单元的大小决定了位图的大小。分配单元越大，位图越小，反之则相反。</li>
+<li>需思考虑位图这种间接查询所造成的开销（时间等）。</li>
+</ul>
+<blockquote>
+<p>比如当存在需 k 个存储单元的进程装入内存时，cpu 需要在位图中查找 k 个连续 0 的串时，查找位图中指定长度的连续 0 串是耗时的操作（尤其是跨越字的边界的串，寻址开销）。</p>
+</blockquote>
+<p><img src="/../images/Memory_pic/IdleMemoryManagement_Bitmaps.jpg" alt="一块内存区与所对应的位图">&emsp;标识（a）是内存，图左下角是相应的位图，图右下角是使用单链表来表示</p>
+</li>
+<li><p><strong>使用链表的存储管理</strong><br>&emsp; 维护一个记录已分配内存段和空闲内存段的链表。</p>
+</li>
+</ol>
 <h3 id="内存分配方式"><a href="#内存分配方式" class="headerlink" title="内存分配方式"></a>内存分配方式</h3><ol>
-<li>单一连续分配</li>
-<li>固定分区分配<ul>
+<li><p>单一连续分配</p>
+</li>
+<li><p>固定分区分配</p>
+<ul>
 <li>分区大小相等</li>
 <li>分区大小不相等</li>
 </ul>
 </li>
-<li>动态分区分配<ul>
+<li><p>动态分区分配</p>
+<ul>
 <li>首次适应（First Fit）算法</li>
-<li>最佳适应（Best Fit）算法</li>
+<li>最佳适应（Best Fit）算法：如果进程和空闲区使用不同的链表，则可以按照大小对空闲区链表排序，以便提高算法的速度。</li>
 <li>最坏适应（Worst Fit）算法</li>
 <li>快速适配（Quick Fit）算法</li>
+<li>下次适配（Next Fit）算法 ：从首次适应算法衍生，不同点是每次分配后并记录这个空间位置，查询时从上一次结束的地方开始。</li>
 </ul>
 </li>
 </ol>
-<h3 id="内存不足情况"><a href="#内存不足情况" class="headerlink" title="内存不足情况"></a>内存不足情况</h3><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
+<blockquote>
+<p>凡是对空闲区按<strong>大小或某些条件排序</strong>的方案，都存在一个缺点，既当进程终止或换出内存时，寻找相邻块是否可以合并的过程以及内存回收后重新排序等是有代价的，但如果不进行合并，内存将分裂出大量<strong>进程无法利用的</strong>小空闲区（外部碎片）</p>
+</blockquote>
+<h3 id="内存不足与内存扩充"><a href="#内存不足与内存扩充" class="headerlink" title="内存不足与内存扩充"></a>内存不足与内存扩充</h3><p>由于计算机的发展，尤其是软件的发展，要利用的内存规模越来越大，程序太大又导致内存容纳不下该程序。也就提出了第一个解决方法：</p>
+<ol>
+<li>覆盖技术<img src="/../images/Memory_pic/overlay.png" alt="Overlay">图片自王道操纵系统</li>
+</ol>
+<blockquote>
+<p>由操作系统完成结构的更换操作，而程序员需要把程序片段进行分割与模块化。</p>
+</blockquote>
+<ol start="2">
+<li>交换技术</li>
+<li>虚拟内存技术</li>
+</ol>
+<h2 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h2><blockquote>
+<p>Virtual memory combines active RAM and inactive memory on DSD to form a large range of configuous addresses –Wiki</p>
+</blockquote>
+<p><strong>个人</strong> 理解是所有外部存储器等通过硬件管理的抽象地址的集合。是一种抽象出来的地址空间。只将执行等所需的区域映射到内存上<img src="/../images/Memory_pic/Virtual%20MemoryMap.png"></p>
+<p>这有一个好处，也就是 cpu 只需要相对于虚拟内存中的地址进行寻址，将这些繁琐的保护与重定位都交给另一个硬件（MMU）来执行。<img src="/../images/Memory_pic/virtualaddress.png" alt="Memory Management Unit"></p>
+<h3 id="分页与页表"><a href="#分页与页表" class="headerlink" title="分页与页表"></a>分页与页表</h3><p>将虚拟地址空间与物理地址空间按固定大小 (2 的整数次幂)分割成若干个单元，称虚拟地址空间分割的单元为页面，物理地址空间分割的单元为页框。</p>
+<blockquote>
+<p><strong>通常</strong> 页框与页面大小（通常是 4KB-1GB 大小）是相同的(有可能不相同)。</p>
+</blockquote>
+<p>分页处理的方式其实就是虚拟内存技术扩充内存的关键思想，一个页框可以对应多个页面的轮流映射。（感觉也可以一个页面映射多个页框，但是用处嘛…）<img src="/../images/Memory_pic/virtual_Map_Memory.png" alt="页面与页框的映射关系"></p>
+<p>由什么来管理这些页面，如何解决缺页的情况呢？这就是要理解内存管理器 MMU 的工作内存了。</p>
+<h2 id="段表"><a href="#段表" class="headerlink" title="段表"></a>段表</h2><blockquote>
+<p>The operating System uses two techniques to manage virtual memory.paging and segmentation.</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
 <ul>
-<li>《现代操纵系统》</li>
-<li>《Modern Operating Systems P186》</li>
+<li>《现代操纵系统原书 第四版》</li>
 </ul>
 
         

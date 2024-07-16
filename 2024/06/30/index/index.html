@@ -59,16 +59,16 @@ var _hmt = _hmt || [];
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Question这里是我初学到 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。 Categories 地址空间三种装入方式 地址空间 一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都存在一个独立的地址空间。虚拟地址的集合是一个地址空间。  An">
+  <meta name="description" content="Question这里是我初学到 目前 学习所得到的信息以及 个人 的理解，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。但没有具体实验，都为个人遇到书籍知识的想法。 Categories 地址空间三种装入方式 地址空间 一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Memory Management">
 <meta property="og:url" content="http://rarpeishan.github.io.com/2024/06/30/index/index.html">
 <meta property="og:site_name" content="RARPEISHAN">
-<meta property="og:description" content="Question这里是我初学到 目前 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。 Categories 地址空间三种装入方式 地址空间 一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都存在一个独立的地址空间。虚拟地址的集合是一个地址空间。  An">
+<meta property="og:description" content="Question这里是我初学到 目前 学习所得到的信息以及 个人 的理解，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。但没有具体实验，都为个人遇到书籍知识的想法。 Categories 地址空间三种装入方式 地址空间 一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
 <meta property="article:published_time" content="2024-06-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-08T10:51:56.853Z">
+<meta property="article:modified_time" content="2024-07-13T08:04:41.654Z">
 <meta property="article:author" content="RARPEISHAN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://rarpeishan.github.io.com/2024/06/30/images/pic/Three_pic.jpg">
@@ -179,6 +179,16 @@ var _hmt = _hmt || [];
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/CMake/">
+                CMake
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Thread/">
+                Thread
+                <div class="category-count">1</div>
+            </a>
+        
             <a class="category-link" href="/categories/English-Reading/">
                 English_Reading
                 <div class="category-count">1</div>
@@ -207,7 +217,7 @@ var _hmt = _hmt || [];
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_clycv4yeu0004ygi19vvb2dqb">
+      <a class="article-gallery-img" rel="gallery_clyoc0mtr0008uci144d62qnt">
         <img src="/../images/pic/Three_pic.jpg" itemprop="image">
       </a>
     
@@ -243,14 +253,14 @@ var _hmt = _hmt || [];
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.5k words 
+            3.4k words 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>这里是我初学到 <strong>目前</strong> 学习所得到的信息，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。</p>
+          <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>这里是我初学到 <strong>目前</strong> 学习所得到的信息以及 <strong>个人</strong> 的理解，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。但没有具体实验，都为个人遇到书籍知识的想法。</p>
 <h2 id="Categories"><a href="#Categories" class="headerlink" title="Categories"></a>Categories</h2><hr>
 <p><a href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">地址空间</a><br><a href="#%E8%A3%85%E5%85%A5">三种装入方式</a></p>
 <h2 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h2><hr>
@@ -262,8 +272,8 @@ var _hmt = _hmt || [];
 <h2 id="装入方式"><a href="#装入方式" class="headerlink" title="装入方式"></a>装入方式</h2><hr>
 <p>解决相对地址到物理地址转换：重定位</p>
 <p><strong>绝对装入</strong><br>&emsp;<strong><em>编译期</em></strong> 就完成相对地址到绝对地址的转化。限制程序装入时的灵活性，固定的地址可能导致其他机器上无法运行。只能在单道程序环境中使用。</p>
-<p><strong>静态重定位：</strong><br>&emsp;在 <strong><em>程序装入内存时</em></strong> 进行相对地址与绝对地址的转化。需一步到位，缺点在内存不足时导致程序频繁换入换出，造成内存效率降低，但解决了绝对装入的缺点。</p>
-<p><strong>动态重定位：</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。</p>
+<p><strong>静态重定位</strong><br>&emsp;在 <strong><em>程序装入内存时</em></strong> 进行相对地址与绝对地址的转化。需一步到位，缺点在内存不足时导致程序频繁换入换出，造成内存效率降低，但解决了绝对装入的缺点。</p>
+<p><strong>动态重定位</strong><br>&emsp;在连续内存空间下（非连续内存空间还需依赖段页机制），<strong>程序执行时</strong> 进行相对地址和绝对地址的转化。需要硬件支持，如重定位寄存器与界限寄存器。</p>
 <p><img src="/../images/Memory_pic/ToProtectAddressSpace%20.png" alt="重定位寄存器与界限寄存器的使用"></p>
 <p>对于直接运行在物理内存上的缺点：</p>
 <ul>
@@ -329,23 +339,47 @@ var _hmt = _hmt || [];
 <li>交换技术</li>
 <li>虚拟内存技术</li>
 </ol>
-<h2 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h2><blockquote>
-<p>Virtual memory combines active RAM and inactive memory on DSD to form a large range of configuous addresses –Wiki</p>
+<h2 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h2><hr>
+<blockquote>
+<p>Virtual memory combines active RAM and inactive memory on DSD to form a large range of contiguous addresses –Wiki</p>
 </blockquote>
 <p><strong>个人</strong> 理解是所有外部存储器等通过硬件管理的抽象地址的集合。是一种抽象出来的地址空间。只将执行等所需的区域映射到内存上<img src="/../images/Memory_pic/Virtual%20MemoryMap.png"></p>
-<p>这有一个好处，也就是 cpu 只需要相对于虚拟内存中的地址进行寻址，将这些繁琐的保护与重定位都交给另一个硬件（MMU）来执行。<img src="/../images/Memory_pic/virtualaddress.png" alt="Memory Management Unit"></p>
-<h3 id="分页与页表"><a href="#分页与页表" class="headerlink" title="分页与页表"></a>分页与页表</h3><p>将虚拟地址空间与物理地址空间按固定大小 (2 的整数次幂)分割成若干个单元，称虚拟地址空间分割的单元为页面，物理地址空间分割的单元为页框。</p>
+<p>这有一个好处，也就是 cpu（或进程） 只需要相对于虚拟内存中的地址进行寻址，将这些繁琐的保护与重定位都交给另一个硬件（MMU）来执行。<img src="/../images/Memory_pic/virtualaddress.png" alt="Memory Management Unit"></p>
 <blockquote>
-<p><strong>通常</strong> 页框与页面大小（通常是 4KB-1GB 大小）是相同的(有可能不相同)。</p>
+<p>The Operating System uses two techniques to manage virtual memory.<strong>paging and segmentation</strong>. –Wiki</p>
 </blockquote>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>将虚拟地址空间与物理地址空间按固定大小 (2 的整数次幂)分割成若干个单元，称虚拟地址空间分割的单元为页面，物理地址空间分割的单元为页框。<strong>通常</strong> 页框与页面大小（通常是 4KB-1GB 大小）是相同的</p>
 <p>分页处理的方式其实就是虚拟内存技术扩充内存的关键思想，一个页框可以对应多个页面的轮流映射。（感觉也可以一个页面映射多个页框，但是用处嘛…）<img src="/../images/Memory_pic/virtual_Map_Memory.png" alt="页面与页框的映射关系"></p>
-<p>由什么来管理这些页面，如何解决缺页的情况呢？这就是要理解内存管理器 MMU 的工作内存了。</p>
-<h2 id="段表"><a href="#段表" class="headerlink" title="段表"></a>段表</h2><blockquote>
-<p>The operating System uses two techniques to manage virtual memory.paging and segmentation.</p>
+<p>由什么来管理这些页面，如何解决缺页的情况呢？这就是要理解内存管理器 MMU 的工作内容了。</p>
+<h2 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h2><hr>
+<blockquote>
+<p>一种数据结构，它用于计算机操作系统中的虚拟内存系统，其存储了虚拟地址到物理地址间的映射。虚拟地址在访问进程中是唯一的，而物理地址在硬件（比如内存）中是唯一的。 –Wiki</p>
 </blockquote>
+<p>页与页框之间在 MMU 的调度下的映射（这里涉及页）如图。<img src="/../images/Memory_pic/MMU_mangement.png" alt="MMU下页与页框之间的映射关系"></p>
+<p>当进程访问地址（长度由机器决定）为 0010 0000 0000 0100 ，其中头四位记录了在页表中的位置，后 12 位记录了页内的偏移量。得到物理页框号后加上后 12 位页内偏移量就得到了实际物理地址。<img src="/../images/Memory_pic/PageTableItem.jpg" alt="页表项"></p>
+<ul>
+<li>Modified：判断页面是否被修改过（是否是 “脏” 页面），决定是否执行写回操作（涉及到 Cache ）</li>
+<li>Caching disabled: 高速缓存禁止位</li>
+<li>Referenced：当发生缺页中断时用来帮助操纵系统判断该淘汰的页面。</li>
+</ul>
+<p>进程对地址的寻址是<strong>相对于自身地址空间</strong>（也可以说是虚拟内存）的地址，通过页表遍历并寻找所映射的页框号，当页表遍历到的页面未映射在内存中，就会触发 page fault，陷入到内核态处理缺页问题。<strong>但我感觉这对页映射的速度要求很高，且还得考虑虚拟内存越大，造成页表更大，速度上的阻碍更大，因为每次都要遍历页表。</strong>《现代操纵系统》中给出了两种解决方法，一种是将<strong>页表</strong>存放在寄存器内，另一种是将<strong>页表表头地址</strong>存放在寄存器中。两种方法的弊端也很明显，全部放在寄存器内就得考虑页表的大小与寻址速度之间的影响以及进程切换造成的开销，不全放进去就得考虑两次访问造成的开销。</p>
+<blockquote>
+<p>但又让我想到了另一个问题，但由于目前我学识浅薄无法解决，于此记下等之后重新在修改。《现代操纵系统》提到进程存在相对于自身的虚拟内存空间，因此操纵系统会创建一个页表来记录与管理进程的地址空间。但在我思考页映射过程时，当进程在出现缺页中断时，它是如何精准找到进程所需要换入的页面？<br>另一个是当程序装入到物理内存时，它可能还存在堆栈等内存生长的可能，这时候又是如何记录这些进程产生的产物？是否对进程的页表进行修改，过程是如何的。</p>
+</blockquote>
+<p>分页表类型：</p>
+<ul>
+<li>倒排分页表</li>
+<li>多级分页表</li>
+<li>虚拟分页表</li>
+<li>嵌套分页表</li>
+</ul>
+<h2 id="TLB（待补充）"><a href="#TLB（待补充）" class="headerlink" title="TLB（待补充）"></a>TLB（待补充）</h2><h2 id="虚拟地址与物理地址间的映射实现（待补充）"><a href="#虚拟地址与物理地址间的映射实现（待补充）" class="headerlink" title="虚拟地址与物理地址间的映射实现（待补充）"></a>虚拟地址与物理地址间的映射实现（待补充）</h2><hr>
+<p>以下是虚拟地址映射到物理地址的实现总视图。<br><img src="/../images/Memory_pic/virtualaddresstoMemory.png" alt="虚拟地址到物理地址的转换"></p>
+<h2 id="段表"><a href="#段表" class="headerlink" title="段表"></a>段表</h2><p>待</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
 <ul>
 <li>《现代操纵系统原书 第四版》</li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E5%88%86%E9%A0%81%E8%A1%A8">zh.wikipedia.org 分页表</a></li>
 </ul>
 
         

@@ -53,19 +53,21 @@ var _hmt = _hmt || [];
 
 
   
-  <title>Category: OS | RARPEISHAN</title>
+  <title>Memory Pool | RARPEISHAN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="个人学习与思考的地方">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RARPEISHAN">
-<meta property="og:url" content="http://rarpeishan.github.io.com/categories/OS/index.html">
+  <meta name="description" content="这章关于我学习 Memory Pool 的知识记录 Prologue以下是从 WIKI 中摘录的部分内容Memory pools (also called fixed-size-blocks allocation) is preallocating a number of memory blocks with the same size. The application can allocate,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memory Pool">
+<meta property="og:url" content="http://rarpeishan.github.io.com/2024/07/25/index/index.html">
 <meta property="og:site_name" content="RARPEISHAN">
-<meta property="og:description" content="个人学习与思考的地方">
+<meta property="og:description" content="这章关于我学习 Memory Pool 的知识记录 Prologue以下是从 WIKI 中摘录的部分内容Memory pools (also called fixed-size-blocks allocation) is preallocating a number of memory blocks with the same size. The application can allocate,">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-25T16:00:06.344Z">
 <meta property="article:author" content="RARPEISHAN">
 <meta name="twitter:card" content="summary">
   
@@ -190,8 +192,18 @@ var _hmt = _hmt || [];
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/OS/">
-                OS
+            <a class="category-link" href="/categories/c/">
+                c++
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Memory/">
+                Memory
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/C/">
+                C++
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -206,44 +218,102 @@ var _hmt = _hmt || [];
     <div id="content-body">
        
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">Archives</h1>
-      </div>    
+
+<article id="post-Memory_Pool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Memory Pool
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-24T16:00:00.000Z" itemprop="datePublished">2024-07-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            404 words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>这章关于我学习 Memory Pool 的知识记录</p>
+<h2 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h2><p>以下是从 WIKI 中摘录的部分内容<br><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Memory_pool">Memory pools</a></strong> (also called fixed-size-blocks allocation) is <strong>preallocating</strong> a number of memory blocks with the same size. The application <strong>can allocate, access, and free blocks represented by handles at run time</strong>.</p>
+<p>允许使用 C 语言的 malloc 或是 C++ 中的 new operator 进行动态内存分配。但这种方式操作太过频繁会</p>
+<blockquote>
+<p><strong>these（以上方式） suffer from fragmentation because of variable block sizes</strong> , it is not recommendable to use them in a real time system due to performance.</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
+<p><a target="_blank" rel="noopener" href="http://staff.ustc.edu.cn/~ykli/os2024/lab/lab3.pdf"></a></p>
+
+        
+        
+      </div>
+
+         
     </div>
     
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2024</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">1 article</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2024/06/30/index/" title="Memory Management">
-        <div class="date">06-30</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    Memory Management
-                
-            </div>
-        </div>
-        <div class="tags">
-            
-        </div>
-      </a>
-    
+     
   </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/07/26/index/"
+      title="动态内存分配器malloc的实现"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        动态内存分配器malloc的实现
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/07/14/index/"
+      title="Learning by CPP Concurrency In Action (One)"
+     >
+
+    <p class="title-text">
+      
+        Learning by CPP Concurrency In Action (One)
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">

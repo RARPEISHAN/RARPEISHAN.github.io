@@ -185,24 +185,19 @@ var _hmt = _hmt || [];
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/English-Reading/">
-                English_Reading
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/OOP/">
+                OOP
+                <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/c/">
-                c++
+            <a class="category-link" href="/categories/OS/">
+                OS
                 <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/Memory/">
                 Memory
-                <div class="category-count">2</div>
-            </a>
-        
-            <a class="category-link" href="/categories/C/">
-                C++
-                <div class="category-count">1</div>
+                <div class="category-count">3</div>
             </a>
         </div>
     </div>
@@ -218,7 +213,7 @@ var _hmt = _hmt || [];
    
 
 
-<article id="post-深入设计模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-CreationalPattern" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -229,7 +224,7 @@ var _hmt = _hmt || [];
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/30/index/">深入设计模型 OOP</a>
+        <a class="p-name article-title" href="/2024/07/31/index/">Creational Patterns</a>
       </h1>
     
   
@@ -237,18 +232,18 @@ var _hmt = _hmt || [];
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-29T16:00:00.000Z" itemprop="datePublished">2024-07-30</time>
+  <time class="dt-published" datetime="2024-07-30T16:00:00.000Z" itemprop="datePublished">2024-07-31</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/C/">C++</a>
+  <a class="meta-cate-link" href="/categories/OOP/">OOP</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            835 words 
+            4.2k words 
           </div>
         </div>
         
@@ -257,24 +252,14 @@ var _hmt = _hmt || [];
         
           <div class="truncate-text">
             
-              这用来记录我学习深入设计模式记得笔记，便于后续回顾。
-OOP
-Object-Oriented Programming&emsp;&emsp;is a paradigm，利用抽象、封装、继承以及多态等概念来建立现实实体模型以及之间的交互。
-OOD 能够提供的特性&emsp;&emsp;Modularity、Reusability、Scalability、Maintainability、Clear Mapping to Real-World Problem 和 Flexibility and Extensibility
-设计模式
-&emsp;&emsp;模式并不是一段特定的代码，而是解决特定问题的一般性概念。
-要区分模式与算法的区别。两者都是对特定问题的解决方案，但算法提供更明确的步骤，而模式偏向于提供想法。
+              Creational Patterns
 
-OOP 主要设计模式
-Creational Patterns
-Singleton Pattern
-Factory Pattern
-Abstract Factory Pattern
-Factory Method Pattern
+Creational design patterns are composed of two dominant ideas. One is encapsulating knowledge about which concrete classes the system uses. Another is hiding how instances of these concrete classes are created and combined. –WIKI
 
-
-Prototype Patten
-Builde...
+Creational Patterns 又分类成 object-creational patterns（主要关注对象的创建） 和 class-instantiation patterns（主要关注类的实例化）
+Factory Patterns
+Factory Patterns ，个人认为按照工厂这个概念，将功能划分为产品生产与产品使用。
+在父类中提供一个创建对象的方法 (依赖于多态的机制)，允许子类决定实例化对象的类型（将构造推迟到到子类中，子类对父类 createProduct() ...
             
           </div>
         
@@ -287,95 +272,7 @@ Builde...
      
     <a class="right-panel  non-pic  "
       
-      href="/2024/07/30/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-OOD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/26/index/">Object-Oriented Design</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-25T16:00:00.000Z" itemprop="datePublished">2024-07-26</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/c/">c++</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.1k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              OOD（Object-Oriented Design）一个程序方法，利用对象、类、封装以及多态等概念来建立现实实体间的模型与交互。
-OOD 能够提供的特性：Modularity、Reusability、Scalability、Maintainability、Clear Mapping to Real-World Problem 和 Flexibility and Extensibility
-OOD 要遵循的原则：Encapsulation、Abstraction、Inheritance、Polymorphism、Composition 以及 SOLID principle：例如 SRP、OCP、ISP 和 DIP（这块有空再看看）
-
-OOD 主要设计模式
-Creational Patterns
-Singleton Pattern
-Factory Pattern
-Abstract Factory Pattern
-Factory Method Pattern
-
-
-Prototype Patten
-Builder Pattern
-
-
-Structural Patterns
-Behavi...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/26/index/" 
+      href="/2024/07/31/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -484,6 +381,94 @@ tcmalloc (Google) 使用 slab 分配器和线程级 cache 来进一步降低分�
    
 
 
+<article id="post-深入设计模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/20/index/">深入设计模型</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-19T16:00:00.000Z" itemprop="datePublished">2024-07-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/OOP/">OOP</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              这用来记录我学习深入设计模式记得笔记，便于后续回顾。
+在学习前需要基本 UML 语言。
+OOP
+Object-Oriented Programming is a paradigm：利用抽象、封装、继承以及多态等概念来建立现实实体模型以及之间的交互。
+OOD 能够提供的特性：Modularity、Reusability、Scalability、Maintainability、Clear Mapping to Real-World Problem 和 Flexibility and Extensibility
+模式
+&emsp;&emsp;模式并不是一段特定的代码，而是解决特定问题的一般性概念。要区分模式与算法的区别。两者都是对特定问题的解决方案，但算法提供更明确的步骤，而模式偏向于提供想法。
+
+OOP 主要设计模式
+Creational Patterns
+Singleton Pattern
+Factory Pattern
+Abstract Factory Pattern
+Factory Method Pattern
+
+
+Prototype Patten
+Builder Patter...
+            
+          </div>
+        
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/07/20/index/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
 <article id="post-Memory_Pool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -495,7 +480,7 @@ tcmalloc (Google) 使用 slab 分配器和线程级 cache 来进一步降低分�
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/25/index/">Memory Pool</a>
+        <a class="p-name article-title" href="/2024/07/16/index/">Memory Pool</a>
       </h1>
     
   
@@ -503,7 +488,7 @@ tcmalloc (Google) 使用 slab 分配器和线程级 cache 来进一步降低分�
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-24T16:00:00.000Z" itemprop="datePublished">2024-07-25</time>
+  <time class="dt-published" datetime="2024-07-15T16:00:00.000Z" itemprop="datePublished">2024-07-16</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -544,7 +529,7 @@ these（以上方式） suffer from fragmentation because of variable block size
      
     <a class="right-panel  non-pic  "
       
-      href="/2024/07/25/index/" 
+      href="/2024/07/16/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -744,7 +729,7 @@ PROJECT(HELLO C CXX)
    
 
 
-<article id="post-English_经济学人_readOne" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-MemoryManagement" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -755,7 +740,7 @@ PROJECT(HELLO C CXX)
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/02/index/">Reading Getting girlhood right</a>
+        <a class="p-name article-title" href="/2024/06/30/index/">Memory Management</a>
       </h1>
     
   
@@ -763,18 +748,18 @@ PROJECT(HELLO C CXX)
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-01T16:00:00.000Z" itemprop="datePublished">2024-07-02</time>
+  <time class="dt-published" datetime="2024-06-29T16:00:00.000Z" itemprop="datePublished">2024-06-30</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/English-Reading/">English_Reading</a>
+  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>><a class="meta-cate-link" href="/categories/OS/">OS</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4.6k words 
+            3.2k words 
           </div>
         </div>
         
@@ -783,17 +768,16 @@ PROJECT(HELLO C CXX)
         
           <div class="truncate-text">
             
-              (仅英语学习与阅读，文章含有的数据以及衍生的论点论据等均未去证实)
-Getting girlhood rightGirls are doing better than ever.Don’t let the pandemic stymie them
+              Question这里是我初学到 目前 学习所得到的信息以及 个人 的理解，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。但没有具体实验，都为个人遇到书籍知识的想法。
+地址空间
+一种存储器抽象：地址空间，进程可以寻址所得到地址的 集合。每个进程都存在一个独立的地址空间。虚拟地址的集合是一个地址空间。
 
+An address space is the set of addresses that a process can use to address memory. Each process has its own address space, independent of those belonging to other processes 《Modern Operating Systems P186》
 
-get something right means you do it properly
-stymie：to prevent something from happening or something from achieving a purpose.A frequently used word from the economist&emsp; e.g. &emsp; Cutting interest rates risks inflation which would stymie entry into the euro
-girlhood: the state or time of being a girl
-pandemic
-
-
-For much of human history and in many places,girls w...
+可以通过基址寄存器与界限寄存器实现地址空间的抽象
+装入方式
+解决相对地址到物理地址转换：重定位
+绝对装入&emsp;编译期 就完成相对地址到绝对地址的转化。限制程序装入...
             
           </div>
         
@@ -804,12 +788,14 @@ For much of human history and in many places,girls w...
     </div>
     
      
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/02/index/" 
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/../images/pic/Three_pic.jpg)" 
+      href="/2024/06/30/index/" 
     >
        
-      <i class="fa-solid fa-angle-right non-pic"></i>
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
        
     </a>
      

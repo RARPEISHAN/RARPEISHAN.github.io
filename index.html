@@ -175,16 +175,6 @@ var _hmt = _hmt || [];
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/Memory/">
-                Memory
-                <div class="category-count">2</div>
-            </a>
-        
-            <a class="category-link" href="/categories/OS/">
-                OS
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/Thread/">
                 Thread
                 <div class="category-count">1</div>
@@ -192,6 +182,16 @@ var _hmt = _hmt || [];
         
             <a class="category-link" href="/categories/OOP/">
                 OOP
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/OS/">
+                OS
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Memory/">
+                Memory
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -352,80 +352,6 @@ Factory Patterns ，个人认为按照工厂这个概念，将功能划分为产
     <a class="right-panel  non-pic  "
       
       href="/2024/07/31/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Memory_Pool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/16/index/">Memory Pool</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-15T16:00:00.000Z" itemprop="datePublished">2024-07-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            900 words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              这章关于我学习 Memory Pool 的知识记录
-Memory pools (also called fixed-size-blocks allocation) is preallocating a number of memory blocks with the same size. The application can allocate, access, and free blocks represented by handles at run time. –wiki
-以上可以知道，MemoryPool 是一种内存分配方式，允许使用 C 语言的 malloc 或是 C++ 中的 new operator 等（调用系统调用）来申请分配内存。但这种频繁通过系统调用分配内存的方式会造成大量的内存碎片以及降低程序性能（会由于变态造成性能开销）。
-PoolPool 将程序中需要经常使用的核心资源先申请出来，放到一个池内，一种资源集合体，由程序管理。保存在内存中不需要使用后就立即释放资源。在高成本的资源获取，以及资源高请求率、同时使用的资源总数较少的情况下，这种 pooling of...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/16/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

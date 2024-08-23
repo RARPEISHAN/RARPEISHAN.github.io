@@ -175,11 +175,6 @@ var _hmt = _hmt || [];
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/CMake/">
-                CMake
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/Thread/">
                 Thread
                 <div class="category-count">1</div>
@@ -195,13 +190,13 @@ var _hmt = _hmt || [];
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/Memory/">
-                Memory
-                <div class="category-count">3</div>
-            </a>
-        
             <a class="category-link" href="/categories/C/">
                 C++
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Memory/">
+                Memory
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -459,94 +454,6 @@ Factory Patterns ，个人认为按照工厂这个概念，将功能划分为产
    
 
 
-<article id="post-动态内存分配器malloc的实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/26/index/">动态内存分配器malloc的实现</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-25T16:00:00.000Z" itemprop="datePublished">2024-07-26</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            466 words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              这个是对学习中科大 os2024 实验 3 记下的一些知识。便于我回顾。
-内存分配器的基本概念与原理
-这里提到了两个系统调用,我在别的地方还看见了sbrk(),但是目前更推荐使用 mmap()。
-
-brk():相对于应用程序堆空间向上增长一定范围（依赖于堆的增长，导致内存回收需要按堆顶向下移动来回收，无法先释放前面的内存），从而分配更多的内存。
-mmap():在堆栈未分配的内存之间，由用户或内核自己决定从一个特殊地址来分配一块内存。相对于 brk() 分配与释放（调用munmap()来释放）要自由的多。
-sbrk() 从堆底向栈顶增长
-
-
-这里分配都时相对于虚拟内存空间的，只有实际访问页面时才会分配内存
-
-一些分配器
-
-ptmalloc (glibc) 使用多级链表来管理空闲空间减少搜索的开销
-jemalloc (Facebook) 使用 buddy tree 减少内存分配中的碎片
-tcmalloc (Google) 使用 slab 分配器和线程级 cache 来进一步降低分配的时延
-
-这里总结说到，设计内存分配器主要围绕 分配时延、内存空间利用率以及多线程下的分配带宽三点性能指...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/26/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
 <article id="post-深入设计模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -617,179 +524,6 @@ Builder Patter...
     <a class="right-panel  non-pic  "
       
       href="/2024/07/20/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Memory_Pool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/16/index/">Memory Pool</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-15T16:00:00.000Z" itemprop="datePublished">2024-07-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            900 words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              这章关于我学习 Memory Pool 的知识记录
-Memory pools (also called fixed-size-blocks allocation) is preallocating a number of memory blocks with the same size. The application can allocate, access, and free blocks represented by handles at run time. –wiki
-以上可以知道，MemoryPool 是一种内存分配方式，允许使用 C 语言的 malloc 或是 C++ 中的 new operator 等（调用系统调用）来申请分配内存。但这种频繁通过系统调用分配内存的方式会造成大量的内存碎片以及降低程序性能（会由于变态造成性能开销）。
-PoolPool 将程序中需要经常使用的核心资源先申请出来，放到一个池内，一种资源集合体，由程序管理。保存在内存中不需要使用后就立即释放资源。在高成本的资源获取，以及资源高请求率、同时使用的资源总数较少的情况下，这种 pooling of...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/16/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-CMakeLearn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/10/index/">CMake learning</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-09T16:00:00.000Z" itemprop="datePublished">2024-07-10</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/CMake/">CMake</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.9k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              使用的系统：Ubuntu20.04创建一个 built 来管理输出的文件，由于 CMakeLists.txt 文件存储在 CMakeOne 目录内，使用”..”指到上一级目录中找到 CMakeLists.txt 并执行
-1234//若在built目录下执行....../CMakeOne/built$ cmake ..//若在一个目录下执行....../CMakeOne$ cmake .
-
-CMake
-CMake 是个一个开源的跨平台自动化建构系统，用 配置文件控制建构过程（build process）的方式管理程序，并不依赖于某特定编译器，并可支持多层目录、多个应用程序与多个函式库。 它–Wiki
-CMake 语法介绍
-PROJECT用来指定工程的名字与支持的语言的行为
-
-
-
-写法
-行为
-
-
-
-PROJECT(HELLO)
-指定文件名，并支持所有语言
-
-
-PROJECT(HELLO CXX)
-指定文件名，支持 c++语言
-
-
-PROJECT(HELLO C CXX)
-指定文件名，并支持 c&#x2F;c++语言
-
-
-该指定隐式定义了两个变量（之间等价）
-12PROJECT_BIN...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/10/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

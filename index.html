@@ -179,6 +179,21 @@ var _hmt = _hmt || [];
                 Thread
                 <div class="category-count">1</div>
             </a>
+        
+            <a class="category-link" href="/categories/OS/">
+                OS
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/C/">
+                C++
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Memory/">
+                Memory
+                <div class="category-count">1</div>
+            </a>
         </div>
     </div>
   </div>
@@ -262,6 +277,162 @@ Constructs a new std::thread object.
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-关于CRTP的了解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/08/21/index/">了解C++ CRTP、concept以及SFINE原则等</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-08-20T16:00:00.000Z" itemprop="datePublished">2024-08-21</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/C/">C++</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.5k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              为了记录我目前浏览的博客中学到的知识，为后续重新复习。参考文章：
+
+https://xr1s.me/2022/10/18/brief-introduction-to-crtp/
+https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern
+https://stackoverflow.com/questions/34061515/how-stdenable-shared-from-thisshared-from-this-works
+
+深入设计模型书中，提到 shared_ptr 托管对象内部传递 this 指针(原始指针)创建 shared_ptr 造成二次创建控制块问题。在 c++ 标准库中提供了 enable_shared_from_this class 用以获取派生类类型来给派生类生成 shared_from_this 方法，使同个实例类都由同一个控制块来管理这块内存，而这个设计模式叫做 CRTP，由此深入了解。
+
+enable_shared_from_this has a weak_ptr data ...
+            
+          </div>
+        
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/08/21/index/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-MemoryManagement" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/06/30/index/">Memory Management</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-06-29T16:00:00.000Z" itemprop="datePublished">2024-06-30</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>><a class="meta-cate-link" href="/categories/OS/">OS</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.6k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              Question这里是记录我初学到 目前 学习所得到的信息以及 个人 的理解，关于内存中地址空间、虚拟内存设计思想。为什么需要地址空间这个抽象概念，其带来了什么好处。什么是虚拟内存，为什么要设计这种机制，虚拟内存管理技术具体怎么管理的。但没有具体实验，都为个人遇到书籍知识的想法。
+参考资料：注意大量知识来源依赖于《现代操纵系统》以及 MIT6.S081 课程（基于 xv6）。MIT6.S081 课程官网：https://pdos.csail.mit.edu/6.828/2022/schedule.html（有相应的英文教材与实验题）MIT6.S081 课程中文教材：https://th0ar.gitbooks.io/xv6-chinese/content/content/chapter2.html
+地址空间
+
+An address space is the set of addresses that a process can use to address memory. Each process has its own address space, independent of...
+            
+          </div>
+        
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/../images/pic/Three_pic.jpg)" 
+      href="/2024/06/30/index/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
        
     </a>
      

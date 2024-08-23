@@ -175,21 +175,6 @@ var _hmt = _hmt || [];
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/Thread/">
-                Thread
-                <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/CMake/">
-                CMake
-                <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/OOP/">
-                OOP
-                <div class="category-count">2</div>
-            </a>
-        
             <a class="category-link" href="/categories/OS/">
                 OS
                 <div class="category-count">1</div>
@@ -197,11 +182,16 @@ var _hmt = _hmt || [];
         
             <a class="category-link" href="/categories/Memory/">
                 Memory
-                <div class="category-count">3</div>
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/C/">
                 C++
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/OOP/">
+                OOP
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -215,90 +205,6 @@ var _hmt = _hmt || [];
     </div>
     <div id="content-body">
       
-   
-
-
-<article id="post-CPPConcurrency" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/08/24/index/">Learning by CPP Concurrency In Action (One)</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-08-23T16:00:00.000Z" itemprop="datePublished">2024-08-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Thread/">Thread</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.9k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              参考文章中的一句话，因为我觉得我需要记住这个方式，因此记录下来
-
-当我们在开发跨平台的软件时，我们不应当对调度策略做任何假设，而应该抱有“系统可能以任意顺序来调度我的任务”这样的想法。
-
-由于初学并发编程，很多地方都不是很了解，但是我会继续加油的。
-这章主要记录多种方式创建线程、join()和detach()介绍和对比、线程标识符等。
-launching a thread object
-线程相关知识管理线程对象类型：
-
-std::thread，一种管控线程的对象。
-std::jthread ：std::thread with support for auto-joining and cancellation。更加安全的一种选择，对于大多数并发程序情况。
-
-Constructs a new std::thread object.
-123456thread() noexcept;thread( thread&amp;&amp; other ) noexcept;template&lt; class F, class... Args &gt;explicit thread( F&amp...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/08/24/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
    
 
 
@@ -363,84 +269,6 @@ enable_shared_from_this has a weak_ptr data ...
     <a class="right-panel  non-pic  "
       
       href="/2024/08/21/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-CreationalPattern" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/31/index/">Creational Patterns</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-30T16:00:00.000Z" itemprop="datePublished">2024-07-31</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/OOP/">OOP</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            4.2k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Creational Patterns
-
-Creational design patterns are composed of two dominant ideas. One is encapsulating knowledge about which concrete classes the system uses. Another is hiding how instances of these concrete classes are created and combined. –WIKI
-
-Creational Patterns 又分类成 object-creational patterns（主要关注对象的创建） 和 class-instantiation patterns（主要关注类的实例化）
-Factory Patterns
-Factory Patterns ，个人认为按照工厂这个概念，将功能划分为产品生产与产品使用。
-在父类中提供一个创建对象的方法 (依赖于多态的机制)，允许子类决定实例化对象的类型（将构造推迟到到子类中，子类对父类 createProduct() ...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/31/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -617,179 +445,6 @@ Builder Patter...
     <a class="right-panel  non-pic  "
       
       href="/2024/07/20/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-Memory_Pool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/16/index/">Memory Pool</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-15T16:00:00.000Z" itemprop="datePublished">2024-07-16</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            900 words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              这章关于我学习 Memory Pool 的知识记录
-Memory pools (also called fixed-size-blocks allocation) is preallocating a number of memory blocks with the same size. The application can allocate, access, and free blocks represented by handles at run time. –wiki
-以上可以知道，MemoryPool 是一种内存分配方式，允许使用 C 语言的 malloc 或是 C++ 中的 new operator 等（调用系统调用）来申请分配内存。但这种频繁通过系统调用分配内存的方式会造成大量的内存碎片以及降低程序性能（会由于变态造成性能开销）。
-PoolPool 将程序中需要经常使用的核心资源先申请出来，放到一个池内，一种资源集合体，由程序管理。保存在内存中不需要使用后就立即释放资源。在高成本的资源获取，以及资源高请求率、同时使用的资源总数较少的情况下，这种 pooling of...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/16/index/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-CMakeLearn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/10/index/">CMake learning</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-09T16:00:00.000Z" itemprop="datePublished">2024-07-10</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/CMake/">CMake</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.9k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              使用的系统：Ubuntu20.04创建一个 built 来管理输出的文件，由于 CMakeLists.txt 文件存储在 CMakeOne 目录内，使用”..”指到上一级目录中找到 CMakeLists.txt 并执行
-1234//若在built目录下执行....../CMakeOne/built$ cmake ..//若在一个目录下执行....../CMakeOne$ cmake .
-
-CMake
-CMake 是个一个开源的跨平台自动化建构系统，用 配置文件控制建构过程（build process）的方式管理程序，并不依赖于某特定编译器，并可支持多层目录、多个应用程序与多个函式库。 它–Wiki
-CMake 语法介绍
-PROJECT用来指定工程的名字与支持的语言的行为
-
-
-
-写法
-行为
-
-
-
-PROJECT(HELLO)
-指定文件名，并支持所有语言
-
-
-PROJECT(HELLO CXX)
-指定文件名，支持 c++语言
-
-
-PROJECT(HELLO C CXX)
-指定文件名，并支持 c&#x2F;c++语言
-
-
-该指定隐式定义了两个变量（之间等价）
-12PROJECT_BIN...
-            
-          </div>
-        
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/07/10/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

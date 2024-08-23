@@ -175,9 +175,9 @@ var _hmt = _hmt || [];
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/OS/">
-                OS
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/OOP/">
+                OOP
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/Memory/">
@@ -185,13 +185,18 @@ var _hmt = _hmt || [];
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/C/">
-                C++
+            <a class="category-link" href="/categories/Thread/">
+                Thread
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/OOP/">
-                OOP
+            <a class="category-link" href="/categories/OS/">
+                OS
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/C/">
+                C++
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -205,6 +210,90 @@ var _hmt = _hmt || [];
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-CPPConcurrency" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/08/24/index/">Learning by CPP Concurrency In Action (One)</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-08-23T16:00:00.000Z" itemprop="datePublished">2024-08-24</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Thread/">Thread</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              参考文章中的一句话，因为我觉得我需要记住这个方式，因此记录下来
+
+当我们在开发跨平台的软件时，我们不应当对调度策略做任何假设，而应该抱有“系统可能以任意顺序来调度我的任务”这样的想法。
+
+由于初学并发编程，很多地方都不是很了解，但是我会继续加油的。
+这章主要记录多种方式创建线程、join()和detach()介绍和对比、线程标识符等。
+launching a thread object
+线程相关知识管理线程对象类型：
+
+std::thread，一种管控线程的对象。
+std::jthread ：std::thread with support for auto-joining and cancellation。更加安全的一种选择，对于大多数并发程序情况。
+
+Constructs a new std::thread object.
+123456thread() noexcept;thread( thread&amp;&amp; other ) noexcept;template&lt; class F, class... Args &gt;explicit thread( F&amp...
+            
+          </div>
+        
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/08/24/index/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -287,7 +376,7 @@ enable_shared_from_this has a weak_ptr data ...
    
 
 
-<article id="post-动态内存分配器malloc的实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-CreationalPattern" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -298,7 +387,7 @@ enable_shared_from_this has a weak_ptr data ...
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/07/26/index/">动态内存分配器malloc的实现</a>
+        <a class="p-name article-title" href="/2024/07/31/index/">Creational Patterns</a>
       </h1>
     
   
@@ -306,18 +395,18 @@ enable_shared_from_this has a weak_ptr data ...
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-07-25T16:00:00.000Z" itemprop="datePublished">2024-07-26</time>
+  <time class="dt-published" datetime="2024-07-30T16:00:00.000Z" itemprop="datePublished">2024-07-31</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
+  <a class="meta-cate-link" href="/categories/OOP/">OOP</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            466 words 
+            4.2k words 
           </div>
         </div>
         
@@ -326,24 +415,14 @@ enable_shared_from_this has a weak_ptr data ...
         
           <div class="truncate-text">
             
-              这个是对学习中科大 os2024 实验 3 记下的一些知识。便于我回顾。
-内存分配器的基本概念与原理
-这里提到了两个系统调用,我在别的地方还看见了sbrk(),但是目前更推荐使用 mmap()。
+              Creational Patterns
 
-brk():相对于应用程序堆空间向上增长一定范围（依赖于堆的增长，导致内存回收需要按堆顶向下移动来回收，无法先释放前面的内存），从而分配更多的内存。
-mmap():在堆栈未分配的内存之间，由用户或内核自己决定从一个特殊地址来分配一块内存。相对于 brk() 分配与释放（调用munmap()来释放）要自由的多。
-sbrk() 从堆底向栈顶增长
+Creational design patterns are composed of two dominant ideas. One is encapsulating knowledge about which concrete classes the system uses. Another is hiding how instances of these concrete classes are created and combined. –WIKI
 
-
-这里分配都时相对于虚拟内存空间的，只有实际访问页面时才会分配内存
-
-一些分配器
-
-ptmalloc (glibc) 使用多级链表来管理空闲空间减少搜索的开销
-jemalloc (Facebook) 使用 buddy tree 减少内存分配中的碎片
-tcmalloc (Google) 使用 slab 分配器和线程级 cache 来进一步降低分配的时延
-
-这里总结说到，设计内存分配器主要围绕 分配时延、内存空间利用率以及多线程下的分配带宽三点性能指...
+Creational Patterns 又分类成 object-creational patterns（主要关注对象的创建） 和 class-instantiation patterns（主要关注类的实例化）
+Factory Patterns
+Factory Patterns ，个人认为按照工厂这个概念，将功能划分为产品生产与产品使用。
+在父类中提供一个创建对象的方法 (依赖于多态的机制)，允许子类决定实例化对象的类型（将构造推迟到到子类中，子类对父类 createProduct() ...
             
           </div>
         
@@ -356,7 +435,7 @@ tcmalloc (Google) 使用 slab 分配器和线程级 cache 来进一步降低分�
      
     <a class="right-panel  non-pic  "
       
-      href="/2024/07/26/index/" 
+      href="/2024/07/31/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -445,6 +524,80 @@ Builder Patter...
     <a class="right-panel  non-pic  "
       
       href="/2024/07/20/index/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-Memory_Pool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/07/16/index/">Memory Pool</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-07-15T16:00:00.000Z" itemprop="datePublished">2024-07-16</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Memory/">Memory</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            900 words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              这章关于我学习 Memory Pool 的知识记录
+Memory pools (also called fixed-size-blocks allocation) is preallocating a number of memory blocks with the same size. The application can allocate, access, and free blocks represented by handles at run time. –wiki
+以上可以知道，MemoryPool 是一种内存分配方式，允许使用 C 语言的 malloc 或是 C++ 中的 new operator 等（调用系统调用）来申请分配内存。但这种频繁通过系统调用分配内存的方式会造成大量的内存碎片以及降低程序性能（会由于变态造成性能开销）。
+PoolPool 将程序中需要经常使用的核心资源先申请出来，放到一个池内，一种资源集合体，由程序管理。保存在内存中不需要使用后就立即释放资源。在高成本的资源获取，以及资源高请求率、同时使用的资源总数较少的情况下，这种 pooling of...
+            
+          </div>
+        
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/07/16/index/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
